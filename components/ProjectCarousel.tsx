@@ -79,7 +79,7 @@ export function ProjectCarousel({ title, images }: ProjectCarouselProps) {
                 <img
                   src={img}
                   alt={`${title} - Slide ${idx + 1}`}
-                  className="w-full h-full md:w-auto md:max-w-full md:max-h-full rounded-xl object-contain object-center md:object-left"
+                  className="w-full h-full md:w-full md:h-[90vh] rounded-xl object-contain object-center md:object-left"
                 />
               </div>
             ))}

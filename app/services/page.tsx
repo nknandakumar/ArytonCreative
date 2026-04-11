@@ -1,13 +1,5 @@
 import { RevealContainer, RevealItem, TextReveal } from "@/components/animations/Reveal";
-import { Layers, Zap, Video, Move3d, ArrowRight } from "lucide-react";
 import Link from "next/link";
-
-const services = [
-  { icon: Move3d, title: "3D Animation", desc: "High-end product films and abstract 3D visualizers that show every detail in perfect lighting." },
-  { icon: Zap, title: "VFX & Compositing", desc: "Seamless integration of CG elements into live-action footage for cinematic impact." },
-  { icon: Video, title: "Motion Graphics", desc: "Dynamic UI animations, kinetic typography, and 2D/3D hybrid motion design." },
-  { icon: Layers, title: "Art Direction", desc: "Comprehensive visual strategy, styleframes, and look development for campaigns." }
-];
 
 const steps = [
   { num: "01", title: "Discovery & Brief", desc: "We dive deep into your brand, objectives, and references to align on vision." },
@@ -21,29 +13,65 @@ export default function Services() {
     <div className="flex flex-col flex-grow">
       {/* SERVICES OVERVIEW */}
       <section className="pt-32 pb-24 px-6 bg-brand-black border-b border-white/5">
-        <RevealContainer className="max-w-7xl mx-auto">
+        <RevealContainer className="max-w-7xl mx-auto flex flex-col items-center text-center">
           <TextReveal>
-            <h1 className="font-heading text-6xl md:text-8xl text-brand-white uppercase mb-8">What We <span className="text-brand-teal">Do</span></h1>
+            <h1 className="font-heading text-6xl md:text-8xl text-brand-white uppercase mb-8">Capabilities</h1>
           </TextReveal>
           <TextReveal delay={0.1}>
-            <p className="font-body text-xl text-brand-white/70 max-w-2xl leading-relaxed">
-              We operate at the intersection of design, technology, and storytelling. Our specialized services are tailored to elevate brands through uncompromising visual fidelity.
+            <p className="font-body text-xl text-brand-white/70 max-w-2xl leading-relaxed mx-auto">
+              We operate at the intersection of motorsport culture, design, and storytelling. Our specialized services are tailored to elevate teams through uncompromising visual fidelity.
             </p>
           </TextReveal>
         </RevealContainer>
       </section>
 
-      {/* 4 SERVICE CARDS */}
-      <section className="py-24 px-6 max-w-7xl mx-auto w-full">
+      {/* 2 SERVICE CARDS */}
+      <section className="py-24 px-6 max-w-6xl mx-auto w-full">
         <RevealContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((svc, i) => (
-            <RevealItem key={i} delay={i * 0.1}>
-              <div className="p-10 rounded-2xl bg-[#0a0c12] border border-white/5 hover:border-brand-teal/50 transition-colors group h-full">
-                <div className="w-16 h-16 bg-brand-teal/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-brand-teal/20 transition-colors">
-                  <svc.icon size={32} className="text-brand-teal" />
+          {[
+            {
+              title: 'Livery Design',
+              type: 'video',
+              media: 'https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775920807/Video-550_htk03d.mp4',
+              desc: 'Custom racing liveries crafted to define your team’s identity on the track.'
+            },
+            {
+              title: 'Logo & Branding',
+              type: 'image',
+              media: 'https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775920402/11b37d168578505.Y3JvcCwxMjAwLDkzOCwwLDEzMA_nop3ve.png',
+              desc: 'Comprehensive brand systems and logos born from speed and precision.'
+            }
+          ].map((cap, i) => (
+            <RevealItem key={i} delay={i * 0.1} className="h-full">
+              <div className="group relative p-8 md:p-12 min-h-[450px] md:min-h-[550px] border border-white/10 rounded-3xl hover:border-brand-teal hover:-translate-y-2 transition-all flex flex-col justify-between items-start cursor-pointer shadow-lg overflow-hidden bg-brand-black">
+                
+                {/* Background Media */}
+                <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+                  {cap.type === 'video' ? (
+                    <video
+                      src={cap.media}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity duration-700"
+                    />
+                  ) : (
+                    <img 
+                      src={cap.media}
+                      alt={cap.title}
+                      className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity duration-700"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-black/95 via-brand-black/40 to-brand-black/20 group-hover:from-brand-black/80 transition-all duration-700" />
                 </div>
-                <h3 className="font-heading text-3xl text-brand-white uppercase mb-4">{svc.title}</h3>
-                <p className="font-body text-brand-white/60 leading-relaxed">{svc.desc}</p>
+
+                <div className="relative z-10 mt-auto flex flex-col gap-4">
+                  <span className="font-heading text-4xl md:text-5xl tracking-wide uppercase text-brand-white/90 group-hover:text-brand-white transition-colors leading-tight">
+                    {cap.title}
+                  </span>
+                  <p className="font-body text-brand-white/70 text-lg leading-relaxed">{cap.desc}</p>
+                </div>
               </div>
             </RevealItem>
           ))}

@@ -1,74 +1,63 @@
-"use client";
+import { RevealContainer, TextReveal } from "@/components/animations/Reveal";
+import { ProjectCarousel } from "@/components/ProjectCarousel";
+import { VideoShowcase } from "@/components/VideoShowcase";
 
-import { useState } from "react";
-import Link from "next/link";
-import { RevealContainer, RevealItem, TextReveal } from "@/components/animations/Reveal";
-import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+const project1Images = [
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899343/Oracle_RedBull_RB21_Peach_Edition1_mxazvi.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899340/Oracle_RedBull_RB21_Peach_Edition_p2_me4kws.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899340/Oracle_RedBull_RB21_Peach_Edition_p3_cljpcs.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899341/Oracle_RedBull_RB21_Peach_Edition_p4_zfceqv.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899342/Oracle_RedBull_RB21_Peach_Edition_p5_kibk9k.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899342/Oracle_RedBull_RB21_Peach_Edition_p7_kyamnc.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899342/Oracle_RedBull_RB21_Peach_Edition_p8_pav33f.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899342/Oracle_RedBull_RB21_Peach_Edition_p9_awjlt6.jpg"
+];
 
-const filters = ["All", "3D Animation", "VFX", "Motion Graphics"];
+const project2Images = [
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo1_fihjup.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo2_drzh61.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo3_pye6vy.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo4_yta8gx.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo5_adbtsu.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899339/photo6_lqlhfq.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899339/photo7_txmnt7.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899339/photo8_ud3qzk.jpg"
+];
 
-const projects = [
-  { id: 1, title: "Neuro Sync", cat: "3D Animation", size: "large", img: "https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=2669&auto=format&fit=crop" },
-  { id: 2, title: "Aero Dynamics", cat: "VFX", size: "small", img: "https://images.unsplash.com/photo-1618005122315-4b7ab02613b5?q=80&w=2564&auto=format&fit=crop" },
-  { id: 3, title: "Vitality Brand", cat: "Motion Graphics", size: "small", img: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=2535&auto=format&fit=crop" },
-  { id: 4, title: "Cyber Protocol", cat: "3D Animation", size: "small", img: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop" },
-  { id: 5, title: "Echo Core", cat: "VFX", size: "large", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop" },
+const videoProjects = [
+  {
+    title: "Aston Martin F1 Concept",
+    url: "https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775900207/Video-820_xjp8hr.mp4"
+  },
+  {
+    title: "Vodafone McLaren MP4-32 (2025)",
+    url: "https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775900453/SnapInsta.to_AQM4dkRNhhodz4qBKIa3O2q7BGjpsZ1dqrFqR9_4YNopiy_kyp7oqpX6FOdeWWyusJLZYi7rj9hVAeN26RHYOFMlyLw7xnk4XTYvSAY_aaptdb.mp4"
+  }
 ];
 
 export default function Work() {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filteredProjects = projects.filter(p => activeFilter === "All" || p.cat === activeFilter);
-
   return (
-    <div className="pt-32 pb-24 px-6 max-w-7xl mx-auto w-full min-h-screen">
-      <RevealContainer className="mb-16">
+    <div className="pt-32 pb-24 px-4 md:px-6 max-w-[95%] md:max-w-7xl mx-auto w-full min-h-screen">
+      <RevealContainer className="mb-16 md:mb-24">
         <TextReveal>
-          <h1 className="font-heading text-6xl md:text-8xl text-brand-white uppercase mb-8">Selected <span className="text-brand-teal">Work</span></h1>
+          <h1 className="font-heading text-6xl md:text-8xl text-brand-white uppercase mb-8">All <span className="text-brand-teal">Work</span></h1>
         </TextReveal>
-        {/* FILTER BAR */}
-        <RevealItem delay={0.1}>
-          <div className="flex flex-wrap gap-4 items-center">
-            {filters.map(f => (
-              <button
-                key={f}
-                onClick={() => setActiveFilter(f)}
-                className={cn(
-                  "font-heading text-xl uppercase tracking-wide px-6 py-2 rounded-full border transition-all",
-                  activeFilter === f 
-                    ? "bg-brand-white text-brand-black border-brand-white" 
-                    : "bg-transparent text-brand-white/50 border-white/20 hover:border-brand-teal hover:text-brand-white"
-                )}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-        </RevealItem>
       </RevealContainer>
 
-      {/* MASONRY GRID (Simulated via tailwind grid sizing) */}
-      <RevealContainer className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredProjects.map((work, i) => (
-          <RevealItem key={work.id} delay={i * 0.1} className={cn(work.size === "large" ? "md:col-span-2 aspect-video" : "col-span-1 aspect-square")}>
-            <Link href={`/work/${work.id}`} className="group block h-full w-full relative rounded-2xl overflow-hidden bg-brand-black/50 border border-white/10">
-              <img src={work.img} alt={work.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-black/20 to-transparent"></div>
-              
-              <div className="absolute bottom-0 left-0 w-full p-8 flex justify-between items-end">
-                <div>
-                  <h3 className="font-heading text-4xl text-brand-white uppercase mb-1">{work.title}</h3>
-                  <p className="font-body text-brand-teal text-sm tracking-widest uppercase">{work.cat}</p>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-brand-teal flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                  <ArrowRight size={24} className="text-brand-black -rotate-45" />
-                </div>
-              </div>
-            </Link>
-          </RevealItem>
-        ))}
-      </RevealContainer>
+      <div className="w-full flex flex-col gap-32 md:gap-40">
+        <VideoShowcase videos={videoProjects} />
+        
+        <div className="flex flex-col w-full gap-32 md:gap-40">
+          <ProjectCarousel 
+            title="Oracle RedBull RB21 Peach" 
+            images={project1Images} 
+          />
+          <ProjectCarousel 
+            title="Gulf Williams F1 Team" 
+            images={project2Images} 
+          />
+        </div>
+      </div>
     </div>
   );
 }

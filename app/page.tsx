@@ -1,6 +1,41 @@
 import Link from "next/link";
 import { ArrowRight, Play, Star } from "lucide-react";
 import { RevealContainer, RevealItem, TextReveal } from "@/components/animations/Reveal";
+import { ProjectCarousel } from "@/components/ProjectCarousel";
+import { VideoShowcase } from "@/components/VideoShowcase";
+
+const project1Images = [
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899343/Oracle_RedBull_RB21_Peach_Edition1_mxazvi.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899340/Oracle_RedBull_RB21_Peach_Edition_p2_me4kws.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899340/Oracle_RedBull_RB21_Peach_Edition_p3_cljpcs.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899341/Oracle_RedBull_RB21_Peach_Edition_p4_zfceqv.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899342/Oracle_RedBull_RB21_Peach_Edition_p5_kibk9k.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899342/Oracle_RedBull_RB21_Peach_Edition_p7_kyamnc.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899342/Oracle_RedBull_RB21_Peach_Edition_p8_pav33f.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899342/Oracle_RedBull_RB21_Peach_Edition_p9_awjlt6.jpg"
+];
+
+const project2Images = [
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo1_fihjup.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo2_drzh61.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo3_pye6vy.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo4_yta8gx.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899338/photo5_adbtsu.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899339/photo6_lqlhfq.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899339/photo7_txmnt7.jpg",
+  "https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899339/photo8_ud3qzk.jpg"
+];
+
+const videoProjects = [
+  {
+    title: "Aston Martin F1 Concept",
+    url: "https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775900207/Video-820_xjp8hr.mp4"
+  },
+  {
+    title: "Vodafone McLaren MP4-32 (2025)",
+    url: "https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775900453/SnapInsta.to_AQM4dkRNhhodz4qBKIa3O2q7BGjpsZ1dqrFqR9_4YNopiy_kyp7oqpX6FOdeWWyusJLZYi7rj9hVAeN26RHYOFMlyLw7xnk4XTYvSAY_aaptdb.mp4"
+  }
+];
 
 export default function Home() {
   return (
@@ -56,47 +91,35 @@ export default function Home() {
         </RevealContainer>
       </section>
 
-      {/* FEATURED WORK x3 */}
-      <section className="py-24 px-6 bg-[#0a0c12]">
-        <div className="max-w-7xl mx-auto">
-          <RevealContainer className="mb-16 flex justify-between items-end">
+      
+      {/* UNIFIED SELECTED WORK SECTION */}
+      <section className="py-32 px-4 md:px-6 lg:px-10 bg-brand-black w-full flex flex-col items-center border-t border-white/5">
+        <div className="w-full max-w-[90%] md:max-w-7xl mx-auto mb-20 text-center">
+          <RevealContainer>
             <TextReveal>
-              <h2 className="font-heading text-5xl md:text-7xl text-brand-white">Selected <span className="text-brand-white/30">Work</span></h2>
+              <h2 className="font-heading text-5xl md:text-7xl text-brand-white uppercase tracking-wider mb-2">
+                Selected <span className="text-brand-white/30">Work</span>
+              </h2>
             </TextReveal>
-            <RevealItem delay={0.2}>
-              <Link href="/work" className="hidden md:flex items-center gap-2 text-brand-teal font-heading tracking-widest uppercase hover:text-brand-white transition-colors">
-                All Projects <ArrowRight size={18} />
-              </Link>
-            </RevealItem>
-          </RevealContainer>
-
-          <RevealContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Neuro Sync", cat: "Product Film", img: "https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=2669&auto=format&fit=crop" },
-              { title: "Aero Dynamics", cat: "3D Animation", img: "https://images.unsplash.com/photo-1618005122315-4b7ab02613b5?q=80&w=2564&auto=format&fit=crop" },
-              { title: "Vitality Brand", cat: "VFX / Motion", img: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=2535&auto=format&fit=crop" },
-            ].map((work, i) => (
-              <RevealItem key={i} delay={i * 0.1}>
-                <Link href={`/work/${work.title.toLowerCase().replace(' ', '-')}`} className="group block">
-                  <div className="aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-white/5 relative">
-                     <img src={work.img} alt={work.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
-                     <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  <div className="flex justify-between items-center px-2">
-                    <div>
-                      <h3 className="font-heading text-2xl text-brand-white uppercase">{work.title}</h3>
-                      <p className="font-body text-brand-white/50 text-sm mt-1">{work.cat}</p>
-                    </div>
-                    <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-brand-teal group-hover:border-brand-teal transition-all">
-                      <ArrowRight size={16} className="text-brand-white group-hover:text-brand-black" />
-                    </div>
-                  </div>
-                </Link>
-              </RevealItem>
-            ))}
           </RevealContainer>
         </div>
+
+        <div className="w-full max-w-[95%] md:max-w-[85%] mx-auto flex flex-col gap-32 md:gap-40">
+          <VideoShowcase videos={videoProjects} />
+          
+          <div className="flex flex-col w-full gap-32 md:gap-40">
+            <ProjectCarousel 
+              title="Oracle RedBull RB21 Peach" 
+              images={project1Images} 
+            />
+            <ProjectCarousel 
+              title="Gulf Williams F1 Team" 
+              images={project2Images} 
+            />
+          </div>
+        </div>
       </section>
+
 
       {/* DISCIPLINES x4 + STATS BAR */}
       <section className="py-24 px-6 max-w-7xl mx-auto w-full border-b border-white/5">

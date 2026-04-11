@@ -395,8 +395,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             return arr.map((c, i) => (
               <div
                 key={i}
-                className="sm-prelayer absolute top-0 right-0 h-full w-full translate-x-0"
-                style={{ background: c }}
+                className="sm-prelayer absolute top-0 right-0 h-full w-full"
+                style={{ 
+                  background: c,
+                  transform: position === 'left' ? 'translateX(-100%)' : 'translateX(100%)'
+                }}
               />
             ));
           })()}
@@ -465,6 +468,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           ref={panelRef}
           className="staggered-menu-panel absolute top-0 right-0 h-full bg-[#08090d] text-brand-white flex flex-col p-[10em_4em_4em_4em] xl:p-[10em_6em_6em_6em] overflow-y-auto z-10 pointer-events-auto shadow-2xl"
           aria-hidden={!open}
+          style={{ transform: position === 'left' ? 'translateX(-100%)' : 'translateX(100%)' }}
         >
           <div className="sm-panel-inner flex-1 flex flex-col gap-8">
             <ul

@@ -88,7 +88,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       preLayerElsRef.current = preLayers;
 
       const offscreen = position === 'left' ? -100 : 100;
-      gsap.set([panel, ...preLayers], { xPercent: offscreen });
+      gsap.set([panel, ...preLayers], { xPercent: offscreen, x: 0 });
 
       gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
       gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
@@ -396,10 +396,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               <div
                 key={i}
                 className="sm-prelayer absolute top-0 right-0 h-full w-full"
-                style={{ 
-                  background: c,
-                  transform: position === 'left' ? 'translateX(-100%)' : 'translateX(100%)'
-                }}
+                style={{ background: c }}
               />
             ));
           })()}
@@ -468,7 +465,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           ref={panelRef}
           className="staggered-menu-panel absolute top-0 right-0 h-full bg-[#08090d] text-brand-white flex flex-col p-[10em_4em_4em_4em] xl:p-[10em_6em_6em_6em] overflow-y-auto z-10 pointer-events-auto shadow-2xl"
           aria-hidden={!open}
-          style={{ transform: position === 'left' ? 'translateX(-100%)' : 'translateX(100%)' }}
         >
           <div className="sm-panel-inner flex-1 flex flex-col gap-8">
             <ul
@@ -542,11 +538,12 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 .sm-scope .sm-icon-line { position: absolute; left: 50%; top: 50%; width: 100%; height: 2px; background: currentColor; border-radius: 2px; transform: translate(-50%, -50%); will-change: transform; }
 .sm-scope .sm-line { display: none !important; }
 .sm-scope .staggered-menu-panel { 
-position: absolute; top: 0; right: 0; width: clamp(320px, 45vw, 600px); height: 100%; display: flex; flex-direction: column; overflow-y: auto; z-index: 10; border-left: 1px solid rgba(255,255,255,0.05); }
-.sm-scope [data-position='left'] .staggered-menu-panel { right: auto; left: 0; border-left: none; border-right: 1px solid rgba(255,255,255,0.05); }
+position: absolute; top: 0; right: 0; width: clamp(320px, 45vw, 600px); height: 100%; display: flex; flex-direction: column; overflow-y: auto; z-index: 10; border-left: 1px solid rgba(255,255,255,0.05); transform: translateX(100%); }
+.sm-scope [data-position='left'] .staggered-menu-panel { right: auto; left: 0; border-left: none; border-right: 1px solid rgba(255,255,255,0.05); transform: translateX(-100%); }
 .sm-scope .sm-prelayers { position: absolute; top: 0; right: 0; bottom: 0; width: clamp(320px, 45vw, 600px); pointer-events: none; z-index: 5; }
 .sm-scope [data-position='left'] .sm-prelayers { right: auto; left: 0; }
-.sm-scope .sm-prelayer { position: absolute; top: 0; right: 0; height: 100%; width: 100%; transform: translateX(0); }
+.sm-scope .sm-prelayer { position: absolute; top: 0; right: 0; height: 100%; width: 100%; transform: translateX(100%); }
+.sm-scope [data-position='left'] .sm-prelayer { transform: translateX(-100%); }
 .sm-scope .sm-socials-link:hover { color: var(--sm-accent, #00D4A8); }
 .sm-scope .sm-panel-item:hover { color: var(--sm-accent, #00D4A8); }
 .sm-scope .sm-panel-list[data-numbering] { counter-reset: smItem; }

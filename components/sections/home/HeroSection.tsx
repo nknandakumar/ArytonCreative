@@ -16,23 +16,23 @@ export function HeroSection() {
       {/* Gradient Overlay for Text Readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-black/30 to-brand-black/95 pointer-events-none" />
       
-      <RevealContainer className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
-        <TextReveal>
-          <h1 className="[font-family:var(--font-inter)] font-heading text-3xl md:text-6xl mb-6 text-brand-white uppercase">
+      <RevealContainer className="relative z-10 px-6 max-w-5xl mx-auto flex flex-col w-full items-start md:items-center">
+        <TextReveal className="w-full">
+          <h1 style={{ fontFamily: 'var(--font-inter)' }} className="font-black text-3xl md:text-6xl mb-6 text-brand-white uppercase text-left md:text-center w-full">
             We Design the Liveries <br className="hidden md:block" />
             <span className="text-brand-teal">That Define the Race.</span>
           </h1>
         </TextReveal>
-        <TextReveal delay={0.2}>
-          <p className="font-body text-brand-white/80 text-sm md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
-            Your livery is the first thing the crowd sees. Your brand is the last thing they forget. We design both.
+        <TextReveal delay={0.2} className="w-full">
+          <p className="font-body text-brand-white/80 text-sm md:text-lg max-w-2xl md:mx-auto mb-10 leading-relaxed font-medium text-left md:text-center w-full">
+            Your livery is the first thing the crowd sees. Your brand is the last thing they forget. <span className="text- font-bold">We design both.</span>
           </p>
         </TextReveal>
-        <RevealItem delay={0.4}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full px-4">
+        <RevealItem delay={0.4} className="w-full">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full">
             <Link 
               href="/work" 
-              className="w-full sm:w-auto bg-brand-white text-brand-black font-heading text-lg md:text-xl uppercase md:px-8 px-4 py-2 md:py-4 rounded hover:bg-brand-teal transition-all hover:scale-105 text-center"
+              className="w-full sm:w-auto bg-brand-white text-brand-black font-heading text-lg md:text-xl uppercase md:px-8 px-4 py-2 md:py-4 rounded hover:bg-brand-teal transition-all hover:scale-105  text-center"
             >
               See Our Work
             </Link>

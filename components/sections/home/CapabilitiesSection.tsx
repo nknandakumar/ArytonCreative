@@ -8,7 +8,7 @@ export function CapabilitiesSection() {
         <div className="text-center flex flex-col items-center w-full mb-16">
           <TextReveal>
             <h2 className="font-heading text-5xl md:text-6xl mb-6 text-brand-white uppercase">
-              What We <span className="text-brand-red">Do</span>
+              What We <span className="text-brand-red">DO</span>
             </h2>
           </TextReveal>
           <TextReveal delay={0.1}>

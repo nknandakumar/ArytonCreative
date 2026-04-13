@@ -422,7 +422,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
           <button
             ref={toggleBtnRef}
-            className="sm-toggle relative inline-flex items-center gap-[0.3rem] bg-brand-teal px-6 py-3 rounded text-brand-black cursor-pointer font-heading text-xl uppercase tracking-wide overflow-visible pointer-events-auto hover:bg-brand-red hover:text-brand-white transition-colors"
+            className="sm-toggle relative inline-flex items-center gap-[0.3rem] bg-brand-teal px-2 py-2 rounded text-brand-black cursor-pointer font-bold font-heading text-xl uppercase tracking-wide overflow-visible pointer-events-auto hover:bg-brand-red hover:text-brand-white transition-colors"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="staggered-menu-panel"
@@ -510,7 +510,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         href={s.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="sm-socials-link font-heading uppercase tracking-widest text-[10px] md:text-lg text-[#fff] no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear hover:text-brand-teal"
+                        className="sm-socials-link font-heading uppercase tracking-widest text-[18px] md:text-lg text-[#fff] no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear hover:text-brand-teal"
                       >
                         {s.label}
                       </a>

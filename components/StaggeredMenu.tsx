@@ -470,13 +470,13 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
             <ul
               className="sm-panel-list list-none m-0 p-0 flex flex-col gap-4"
               role="list"
-              data-numbering={displayItemNumbering || undefined}
+              
             >
               {items && items.length ? (
                 items.map((it, idx) => (
                   <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
                     <a
-                      className="sm-panel-item relative text-brand-white font-heading text-[5rem] md:text-[5rem] cursor-pointer leading-[0.85] tracking-tight uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]"
+                      className="sm-panel-item relative text-brand-white font-heading text-4xl md:text-6xl cursor-pointer leading-[0.85] tracking-tight uppercase transition-[background,color] duration-150 ease-linear inline-block no-underline pr-[1.4em]"
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
@@ -510,7 +510,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         href={s.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="sm-socials-link font-heading uppercase tracking-widest text-[1rem] text-[#fff] no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear hover:text-brand-teal"
+                        className="sm-socials-link font-heading uppercase tracking-widest text-[10px] md:text-lg text-[#fff] no-underline relative inline-block py-[2px] transition-[color,opacity] duration-300 ease-linear hover:text-brand-teal"
                       >
                         {s.label}
                       </a>

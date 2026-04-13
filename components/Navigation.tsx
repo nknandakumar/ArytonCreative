@@ -5,7 +5,7 @@ import { StaggeredMenu } from "./StaggeredMenu";
 const menuItems = [
   { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
   { label: 'Work', ariaLabel: 'View our portfolio', link: '/work' },
-  { label: 'Services', ariaLabel: 'View our services', link: '/services' },
+  { label: 'Service ', ariaLabel: 'View our services', link: '/services' },
   { label: 'About', ariaLabel: 'Learn about us', link: '/about' },
   { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
 ];

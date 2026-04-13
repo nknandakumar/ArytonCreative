@@ -1,12 +1,7 @@
 import { RevealContainer, RevealItem, TextReveal } from "@/components/animations/Reveal";
 import Link from "next/link";
+import { ProcessSection } from "@/components/sections/services/ProcessSection";
 
-const steps = [
-  { num: "01", title: "Discovery & Brief", desc: "We dive deep into your brand, objectives, and references to align on vision." },
-  { num: "02", title: "Styleframes & Previtz", desc: "Developing the look and feel through static frames and rough motion blocking." },
-  { num: "03", title: "Production & Rendering", desc: "The heavy lifting. Animating, simulations, lighting, and rendering the final frames." },
-  { num: "04", title: "Compositing & Delivery", desc: "Adding the final polish, color grading, sound design, and delivering assets." }
-];
 
 export default function Services() {
   return (
@@ -15,7 +10,7 @@ export default function Services() {
       <section className="pt-32 pb-24 px-6 bg-brand-black border-b border-white/5">
         <RevealContainer className="max-w-7xl mx-auto flex flex-col items-center text-center">
           <TextReveal>
-            <h1 className="font-heading text-6xl md:text-8xl text-brand-white uppercase mb-8">Capabilities</h1>
+            <h1 className="font-heading text-6xl md:text-8xl text-brand-white uppercase mb-8">Our Services</h1>
           </TextReveal>
           <TextReveal delay={0.1}>
             <p className="font-body text-xl text-brand-white/70 max-w-2xl leading-relaxed mx-auto">
@@ -79,26 +74,7 @@ export default function Services() {
       </section>
 
       {/* PROCESS STEPS */}
-      <section className="py-24 px-6 bg-brand-teal text-brand-black">
-        <RevealContainer className="max-w-7xl mx-auto">
-          <TextReveal>
-            <h2 className="font-heading text-5xl md:text-7xl mb-16 uppercase">Our Process</h2>
-          </TextReveal>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {steps.map((step, i) => (
-              <RevealItem key={i} delay={i * 0.1}>
-                <div className="relative">
-                  <span className="font-heading text-8xl text-brand-black/10 absolute -top-10 -left-4 font-bold">{step.num}</span>
-                  <div className="relative z-10 pt-4 border-t-2 border-brand-black">
-                    <h4 className="font-heading text-2xl uppercase mb-3">{step.title}</h4>
-                    <p className="font-body font-medium opacity-80 text-sm leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </RevealContainer>
-      </section>
+      <ProcessSection />
 
       {/* START A PROJECT CTA */}
        <section className="py-32 px-6 bg-brand-black text-center flex flex-col items-center border-t border-brand-teal/20 mx-auto w-full">
@@ -109,7 +85,7 @@ export default function Services() {
           <RevealItem delay={0.2}>
             <Link 
               href="/contact" 
-              className="mt-8 inline-block bg-brand-teal text-brand-black font-heading text-2xl uppercase px-12 py-5 rounded hover:bg-brand-red hover:text-brand-white transition-all shadow-[0_0_30px_rgba(0,212,168,0.2)]"
+              className="mt-8 inline-block bg-brand-teal text-brand-black font-heading text-lg md:text-2xl uppercase px-4 py-3 rounded font-bold hover:bg-brand-red hover:text-brand-white transition-all shadow-[0_0_30px_rgba(0,212,168,0.2)]"
             >
               Start a Project
             </Link>

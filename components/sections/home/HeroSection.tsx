@@ -18,7 +18,7 @@ export function HeroSection() {
       
       <RevealContainer className="relative z-10 px-6 max-w-5xl mx-auto flex flex-col w-full items-start md:items-center">
         <TextReveal className="w-full">
-          <h1 style={{ fontFamily: 'var(--font-inter)' }} className="font-black text-3xl md:text-6xl mb-6 text-brand-white uppercase text-left tracking-tight md:text-center w-full">
+          <h1 style={{ fontFamily: 'var(--font-inter)' }} className="font-black text-3xl md:text-6xl lg:text-7xl mb-6 text-brand-white uppercase text-left tracking-tighter md:text-center w-full">
             We Design the Liveries <br className="hidden md:block" />
             <span className="text-brand-teal">That Define the Race.</span>
           </h1>

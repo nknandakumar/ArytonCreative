@@ -11,7 +11,7 @@ export function TestimonialSection() {
           </div>
         </RevealItem>
         <TextReveal delay={0.1}>
-          <p className="font-heading text-3xl md:text-5xl text-brand-white leading-tight uppercase tracking-wide mb-12">
+          <p className="font-body text-3xl md:text-5xl text-brand-white leading-tight tracking-wide mb-12">
             "Ayrton Creative elevated our product launch with visuals that literally broke our engagement records. An absolute powerhouse team."
           </p>
         </TextReveal>

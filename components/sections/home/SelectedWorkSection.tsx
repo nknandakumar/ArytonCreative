@@ -26,7 +26,7 @@ const project2Images = [
 
 const videoProjects = [
   {
-    title: "Aston Martin F1 Concept",
+    title: "Aston Martin F1 Concept ",
     url: "https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775900207/Video-820_xjp8hr.mp4"
   },
   {
@@ -53,11 +53,11 @@ export function SelectedWorkSection() {
         
         <div className="flex flex-col w-full gap-32 md:gap-40">
           <ProjectCarousel 
-            title="Oracle RedBull RB21 Peach" 
+            title="Oracle RedBull RB21 Peach Livery" 
             images={project1Images} 
           />
           <ProjectCarousel 
-            title="Gulf Williams F1 Team" 
+            title="Gulf Williams F1 Team Livery" 
             images={project2Images} 
           />
         </div>

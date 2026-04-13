@@ -56,7 +56,7 @@ export function CapabilitiesSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/30 to-brand-black/20 group-hover:from-brand-black/70 transition-all duration-700" />
                 </div>
 
-                <span className="relative z-10 font-heading text-4xl md:text-5xl tracking-wide uppercase text-brand-white/90 group-hover:text-brand-white transition-colors mt-auto leading-tight">
+                <span className="relative z-10 font-heading text-4xl md:text-5xl tracking-tight uppercase text-brand-white/90 group-hover:text-brand-white transition-colors mt-auto leading-tight font-bold">
                   {cap.title}
                 </span>
               </div>

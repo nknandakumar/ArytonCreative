@@ -416,7 +416,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="font-heading hidden md:block md:text-2xl tracking-wide uppercase text-brand-white pt-1">AyrtonCreative</span>
+              <span className="font-heading hidden md:block md:text-2xl tracking-wide uppercase text-brand-white font-bold pt-1">AyrtonCreative</span>
             </a>
           </div>
 

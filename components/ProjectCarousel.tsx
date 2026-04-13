@@ -109,17 +109,17 @@ export function ProjectCarousel({ title, images }: ProjectCarouselProps) {
           </div>
 
           {/* Desktop Details Container (Right side on Desktop) */}
-          <div className="hidden md:flex flex-col justify-start w-[30%] lg:w-[35%] min-w-[300px] order-3">
+          <div className="hidden md:flex flex-col justify-start w-[30%] lg:w-[55%] min-w-[400px] order-3">
             
             {/* Project Name */}
             <TextReveal>
-              <h2 className="font-heading text-3xl lg:text-5xl text-brand-white uppercase tracking-wider leading-[1.1] mb-8">
+              <h2 className="font-heading text-3xl lg:text-3xl text-brand-white uppercase tracking-tight leading-[1.1] mb-8">
                 {title}
               </h2>
             </TextReveal>
 
             {/* Thumbnails Grid */}
-            <div className="flex flex-wrap gap-4 mb-10 w-full max-w-[400px]">
+            <div className="flex flex-wrap gap-4 mb-10 w-full max-w-[500px]">
               {images.map((img, idx) => (
                 <button
                   key={idx}

@@ -12,6 +12,8 @@ interface VideoShowcaseProps {
   videos: VideoData[];
 }
 
+import { RevealContainer, RevealItem } from "./animations/Reveal";
+
 export function VideoShowcase({ videos }: VideoShowcaseProps) {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   // Initialize state based on which video is set to autoPlay (idx === 0)
@@ -65,12 +67,12 @@ export function VideoShowcase({ videos }: VideoShowcaseProps) {
   };
 
   return (
-    <div className="w-full flex-1">
+    <RevealContainer className="w-full flex-1">
       <div className="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 justify-center w-full">
         {videos.map((vid, idx) => (
-          <div key={idx} className="relative flex flex-col flex-1 items-center w-full">
+          <RevealItem key={idx} delay={idx * 0.2} className="relative flex flex-col flex-1 items-center w-full">
             <div 
-              className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-white/5 border border-white/10 shadow-lg relative group cursor-pointer"
+              className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-white/5 border border-white/10 shadow-lg relative group cursor-pointer hover:-translate-y-2 transition-transform duration-300"
               onClick={() => handleTogglePlay(idx)}
             >
               <video
@@ -111,9 +113,9 @@ export function VideoShowcase({ videos }: VideoShowcaseProps) {
                   </h3>
                </div>
             </div>
-          </div>
+          </RevealItem>
         ))}
       </div>
-    </div>
+    </RevealContainer>
   );
 }

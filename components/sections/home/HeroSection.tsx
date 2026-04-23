@@ -10,7 +10,7 @@ export function HeroSection() {
       {/* Background Video for Mobile */}
       <div className="absolute inset-0 md:hidden w-full h-full z-0 overflow-hidden">
         <video
-          src="https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775920807/Video-550_htk03d.mp4"
+          src="https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775984286/SnapInsta.to_AQN4hH4OMIfs7Lky14Bw-oi03HzFd4RGeTEIEoRMZ3hKclJPx-fldNwZV4_XkjWHRhxpY9TVMkvVBLiphD4pNVuwhWqNtB_DUAm3pkE_nmyla9.mp4"
           autoPlay
           muted
           loop
@@ -81,7 +81,11 @@ export function HeroSection() {
         </div>
       </RevealContainer>
 
-      <HeroMediaSlider />
+      <RevealContainer className="w-full">
+        <RevealItem delay={4.1} yOffset={60}>
+          <HeroMediaSlider />
+        </RevealItem>
+      </RevealContainer>
 
     </section>
   );

@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { RevealContainer, TextReveal } from "@/components/animations/Reveal";
+import { RevealContainer, RevealItem, TextReveal } from "@/components/animations/Reveal";
 
 const reviews = [
   {
@@ -46,39 +46,43 @@ export function TestimonialSection() {
         </RevealContainer>
       </div>
 
-      {/* Infinite Scrolling Marquee */}
-      <div className="relative w-full flex overflow-hidden group border-y border-white/5 bg-[#08090d]">
-        {/* Transparent gradient masks for fading edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-r from-brand-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-l from-brand-black to-transparent z-10 pointer-events-none" />
+      <RevealContainer className="w-full mt-4">
+        <RevealItem>
+          {/* Infinite Scrolling Marquee */}
+          <div className="relative w-full flex overflow-hidden group border-y border-white/5 bg-[#08090d]">
+            {/* Transparent gradient masks for fading edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-r from-brand-black to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 md:w-48 bg-gradient-to-l from-brand-black to-transparent z-10 pointer-events-none" />
 
-        {/* Marquee Track */}
-        <div className="flex animate-marquee whitespace-nowrap w-max group-hover:[animation-play-state:paused]">
-          {/* Double the reviews array to ensure seamless looping */}
-          {[...reviews, ...reviews].map((review, idx) => (
-            <div 
-              key={idx} 
-              className="w-[350px] md:w-[450px] border-r border-white/5 p-8 md:p-12 flex flex-col gap-6 flex-shrink-0 hover:bg-white/[0.02] transition-colors cursor-default"
-            >
-              <div className="flex gap-1 text-brand-teal">
-                {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="currentColor" />)}
-              </div>
-              <p className="font-body text-lg md:text-xl text-brand-white/90 leading-relaxed whitespace-normal min-h-[140px] md:min-h-[120px]">
-                "{review.text}"
-              </p>
-              <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 bg-white/10 rounded-full overflow-hidden flex-shrink-0 border border-white/10">
-                  <img src={review.image} alt={review.author} className="w-full h-full object-cover" />
+            {/* Marquee Track */}
+            <div className="flex animate-marquee whitespace-nowrap w-max group-hover:[animation-play-state:paused]">
+              {/* Double the reviews array to ensure seamless looping */}
+              {[...reviews, ...reviews].map((review, idx) => (
+                <div 
+                  key={idx} 
+                  className="w-[350px] md:w-[450px] border-r border-white/5 p-8 md:p-12 flex flex-col gap-6 flex-shrink-0 hover:bg-white/[0.02] transition-colors cursor-default"
+                >
+                  <div className="flex gap-1 text-brand-teal">
+                    {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="currentColor" />)}
+                  </div>
+                  <p className="font-body text-lg md:text-xl text-brand-white/90 leading-relaxed whitespace-normal min-h-[140px] md:min-h-[120px]">
+                    "{review.text}"
+                  </p>
+                  <div className="flex items-center gap-4 mt-auto">
+                    <div className="w-12 h-12 bg-white/10 rounded-full overflow-hidden flex-shrink-0 border border-white/10">
+                      <img src={review.image} alt={review.author} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="text-left flex flex-col justify-center">
+                      <h4 className="font-heading text-sm uppercase tracking-wide text-brand-white">{review.author}</h4>
+                      <p className="font-body text-xs text-brand-teal mt-0.5">{review.role}</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-left flex flex-col justify-center">
-                  <h4 className="font-heading text-sm uppercase tracking-wide text-brand-white">{review.author}</h4>
-                  <p className="font-body text-xs text-brand-teal mt-0.5">{review.role}</p>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </RevealItem>
+      </RevealContainer>
     </section>
   );
 }

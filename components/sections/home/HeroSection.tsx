@@ -5,7 +5,7 @@ import { HeroMediaSlider } from "@/components/sections/home/HeroMediaSlider";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center md:justify-start overflow-hidden bg-brand-black">
+    <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-brand-black">
       
       {/* Background Video for Mobile */}
       <div className="absolute inset-0 md:hidden w-full h-full z-0 overflow-hidden">
@@ -22,7 +22,7 @@ export function HeroSection() {
       </div>
       
       {/* Main Content Wrapper */}
-      <RevealContainer className="relative z-10 px-6 sm:px-10 md:px-12 lg:px-20 py-16 md:pt-32 md:pb-10 flex flex-col md:flex-row justify-between items-start md:items-start w-full pointer-events-none md:pointer-events-auto gap-8 md:gap-12">
+      <RevealContainer className="relative z-10 px-6 sm:px-10 md:px-12 lg:px-20 py-20 pb-28 md:pt-32 md:pb-10 flex flex-col md:flex-row justify-between items-start md:items-start w-full flex-1 pointer-events-none md:pointer-events-auto gap-8 md:gap-12">
         
         {/* Top Row / Left Column: Heading & Reviews */}
         <div className="w-full md:w-1/2 flex flex-col justify-start items-start pointer-events-auto mt-12 md:mt-0">
@@ -55,9 +55,9 @@ export function HeroSection() {
         </div>
 
         {/* Bottom Row / Right Column: Subtext & CTA */}
-        <div className="w-full md:w-1/2 flex flex-col order-2 md:order-none pointer-events-auto md:items-end md:mt-4">
+        <div className="w-full md:w-1/2 flex flex-col order-2 md:order-none pointer-events-auto md:items-end mt-auto md:mt-4">
           <TextReveal delay={0.2} className="w-full flex md:justify-end">
-            <p className="font-body text-brand-white/80 text-sm md:text-lg lg:text-xl mb-8 md:mb-8 leading-relaxed font-medium text-left md:text-right max-w-md">
+            <p className="font-body text-brand-white/80 text-sm md:text-lg lg:text-xl mb-8 md:mb-8 leading-relaxed font-medium text-lef md:text-right max-w-md">
               Your livery is the first thing the crowd sees. Your brand is the last thing they forget. <span className="text-brand-teal font-bold decoration-brand-teal/30 underline-offset-8">We design both.</span>
             </p>
           </TextReveal>

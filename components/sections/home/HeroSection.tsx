@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { RevealContainer, RevealItem, TextReveal } from "@/components/animations/Reveal";
 import { Star } from "lucide-react";
+import { HeroMediaSlider } from "@/components/sections/home/HeroMediaSlider";
 
 export function HeroSection() {
   return (
@@ -28,7 +29,7 @@ export function HeroSection() {
           <TextReveal className="w-full">
             <h1 
               style={{ fontFamily: 'var(--font-inter)' }} 
-              className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-[5rem] mb-4 text-brand-white uppercase text-left tracking-tighter leading-[0.9]"
+              className="font-black text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl mb-4 text-brand-white uppercase text-left tracking-tighter leading-[0.9]"
             >
               We Design the <br className="hidden md:block" />
               Liveries That <br className="hidden md:block" />
@@ -80,30 +81,7 @@ export function HeroSection() {
         </div>
       </RevealContainer>
 
-      {/* Media Grid for Desktop Only */}
-      <div className="hidden md:grid grid-cols-3 gap-4 lg:gap-6 w-full px-6 md:px-12 lg:px-20 pb-16 z-10 relative pointer-events-auto mt-4">
-        <div className="w-full aspect-[16/11] rounded-3xl overflow-hidden relative shadow-2xl">
-          <video 
-            src="https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775920807/Video-550_htk03d.mp4" 
-            autoPlay muted loop playsInline
-            className="object-cover w-full h-full opacity-90 hover:opacity-100 transition-all duration-500 hover:scale-105" 
-          />
-        </div>
-        <div className="w-full aspect-[16/11] rounded-3xl overflow-hidden relative shadow-2xl bg-[#0a0c12]">
-          <img 
-            src="https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775899343/Oracle_RedBull_RB21_Peach_Edition1_mxazvi.jpg" 
-            className="object-cover w-full h-full opacity-90 hover:opacity-100 transition-all duration-500 hover:scale-105" 
-            alt="Oracle RedBull Design"
-          />
-        </div>
-        <div className="w-full aspect-[16/11] rounded-3xl overflow-hidden relative shadow-2xl">
-          <video 
-            src="https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775900207/Video-820_xjp8hr.mp4" 
-            autoPlay muted loop playsInline
-            className="object-cover w-full h-full opacity-90 hover:opacity-100 transition-all duration-500 hover:scale-105" 
-          />
-        </div>
-      </div>
+      <HeroMediaSlider />
 
     </section>
   );

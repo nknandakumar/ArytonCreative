@@ -1,15 +1,31 @@
 import Link from "next/link";
 import { RevealContainer, RevealItem, TextReveal } from "@/components/animations/Reveal";
+import MagicRings from "@/components/animations/MagicRings";
 
 export function CtaSection() {
   return (
-    <section className="py-32 px-6 relative overflow-hidden h-[100vh] flex items-center justify-center border-t border-brand-teal/20">
-      <div className="absolute inset-0 bg-brand-teal/5" />
-      <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] bg-brand-teal/10 blur-[120px] rounded-full" />
+    <section 
+      className="py-32 px-6 relative overflow-hidden h-[100vh] flex items-center justify-center"
+    >
+      {/* Interactive Magic Rings Background */}
+      <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen">
+        <MagicRings 
+          color="#00d4a8" 
+          colorTwo="#111111" 
+          ringCount={8} 
+          hoverScale={1.3} 
+          mouseInfluence={0.3}
+          speed={1.5}
+        />
+      </div>
+      
+      {/* Dark overlay gradients for contrast */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#08090d] via-transparent to-[#08090d] z-0 pointer-events-none" />
+      <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] bg-brand-teal/10 blur-[120px] rounded-full z-0 pointer-events-none mix-blend-screen" />
       
       <RevealContainer className="relative z-10 text-center flex flex-col items-center">
         <TextReveal>
-          <h2 className="font-heading text-6xl md:text-7xl text-brand-white mb-6 uppercase">Ready to <span className="text-brand-teal">Elevate?</span></h2>
+          <h2 className="font-heading text-6xl md:text-7xl text-brand-white mb-6 lowercase">Ready to <span className="text-brand-teal">Elevate?</span></h2>
         </TextReveal>
         <TextReveal delay={0.1}>
           <p className="font-body text-brand-white/70 max-w-md mx-auto mb-10 text-lg">

@@ -105,7 +105,7 @@ export function VideoShowcase({ videos }: VideoShowcaseProps) {
 
               {/* Bottom Fade & Text Overlay */}
               <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
-               <div className="absolute bottom-6 left-6 right-6 z-20 pointer-events-none text-left">
+               <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none text-left">
                   <h3 className="font-heading text-xl md:text-2xl lg:text-3xl text-brand-white uppercase tracking-wide leading-tight drop-shadow-md">
                      {vid.title}
                   </h3>

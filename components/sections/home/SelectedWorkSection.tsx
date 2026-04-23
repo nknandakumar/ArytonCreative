@@ -104,7 +104,7 @@ export function SelectedWorkSection() {
         {/* Panel 1: Videos */}
         <div 
           ref={el => { panelsRef.current[0] = el; }} 
-          className="w-full bg-brand-black relative z-[1] pb-32 md:pb-40"
+          className="w-full bg-[#08090d] relative z-10 isolate overflow-hidden pb-32 md:pb-40"
         >
           <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
             <VideoShowcase videos={videoProjects} />
@@ -114,8 +114,8 @@ export function SelectedWorkSection() {
         {/* Panel 2: Project 1 */}
         <div 
           ref={el => { panelsRef.current[1] = el; }} 
-          className="w-full bg-brand-black relative z-[2] pt-8 pb-32 md:pb-40 border-t border-white/5"
-          style={{ boxShadow: "0 -20px 40px rgba(0,0,0,0.5)" }}
+          className="w-full bg-[#08090d] relative z-20 isolate overflow-hidden pt-8 pb-32 md:pb-40 border-t border-white/5"
+          style={{ boxShadow: "0 -40px 60px 10px #08090d" }}
         >
           <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
             <ProjectCarousel 
@@ -128,8 +128,8 @@ export function SelectedWorkSection() {
         {/* Panel 3: Project 2 */}
         <div 
           ref={el => { panelsRef.current[2] = el; }} 
-          className="w-full bg-brand-black relative z-[3] pt-8 pb-32 md:pb-40 border-t border-white/5"
-          style={{ boxShadow: "0 -20px 40px rgba(0,0,0,0.5)" }}
+          className="w-full bg-[#08090d] relative z-30 isolate overflow-hidden pt-8 pb-32 md:pb-40 border-t border-white/5"
+          style={{ boxShadow: "0 -40px 60px 10px #08090d" }}
         >
           <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
             <ProjectCarousel 

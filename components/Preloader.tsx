@@ -16,15 +16,6 @@ export default function Preloader() {
     // Smoothly scroll to top on reload so reveal looks good
     window.scrollTo(0, 0);
 
-    const tl = gsap.timeline({
-      onComplete: () => {
-        document.body.style.overflow = "";
-        if (preloaderRef.current) {
-          preloaderRef.current.style.display = "none";
-        }
-      },
-    });
-
     // Simulate loading progress
     const duration = 1.5; // total time for progress bar in seconds
     const interval = 20; // update frequency in ms
@@ -44,6 +35,15 @@ export default function Preloader() {
       if (currentStep >= steps) {
         clearInterval(timer);
         setProgress(100);
+        
+        const tl = gsap.timeline({
+          onComplete: () => {
+            document.body.style.overflow = "";
+            if (preloaderRef.current) {
+              preloaderRef.current.style.display = "none";
+            }
+          },
+        });
         
         // Progress reaches 100, fade it out
         tl.to(progressRef.current, {
@@ -83,7 +83,7 @@ export default function Preloader() {
       
       <div className="relative z-10 flex flex-col items-center justify-center">
         <div ref={textRef} className="absolute opacity-0 font-heading text-4xl md:text-6xl font-black tracking-widest text-brand-white flex items-center gap-2 whitespace-nowrap">
-          AYRTON<span className="text-brand-teal">.</span>
+          AYRTONCREATIVE<span className="text-brand-teal">.</span>
         </div>
         
         <div ref={progressRef} className="flex flex-col items-center">

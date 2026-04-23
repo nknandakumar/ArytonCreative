@@ -66,13 +66,13 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row items-start md:items-center justify-start md:justify-start gap-4 w-full">
               <Link 
                 href="/contact" 
-                className="w-full sm:w-auto bg-brand-white text-brand-black font-heading text-lg md:text-sm uppercase px-8 md:px-8 py-3 md:py-3.5 rounded hover:bg-brand-teal hover:text-black transition-all hover:scale-105 text-center font-bold tracking-tight shadow-lg"
+                className="w-full sm:w-auto bg-brand-white text-brand-black font-heading text-lg md:text-sm uppercase px-8 md:px-8 py-3 md:py-3.5 rounded hover:bg-brand-teal hover:text-black transition-all hover:scale-105 text-center font-semibold tracking-tight shadow-lg"
               >
                 Start a Project
               </Link>
               <Link 
                 href="/work" 
-                className="w-full sm:w-auto bg-transparent border border-white/20 text-brand-white font-heading text-sm uppercase px-4 md:px-6 py-2 md:py-3 rounded hover:border-brand-teal hover:text-brand-teal transition-all hover:scale-105 text-center font-bold tracking-tight"
+                className="w-full sm:w-auto bg-transparent border border-white/20 text-brand-white font-heading text-sm uppercase px-4 md:px-6 py-2 md:py-3 rounded hover:border-brand-teal hover:text-brand-teal transition-all hover:scale-105 text-center font-semi bold tracking-tight"
               >
                 See Our Work
               </Link>

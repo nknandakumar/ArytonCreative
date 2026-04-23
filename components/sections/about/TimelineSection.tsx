@@ -124,7 +124,7 @@ export function TimelineSection() {
             style={{
               background:
                 "linear-gradient(to bottom, #00d4a8, #00d4a8aa, transparent)",
-              scaleY: 0,
+              transform: "scaleY(0)",
             }}
           />
 

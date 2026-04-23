@@ -407,8 +407,21 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           aria-label="Main navigation header"
           style={{ paddingLeft: '1.5rem', paddingRight: '1.5rem', paddingTop: '2rem' }}
         >
-          <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
+          <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Brand">
             <a href="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-full group-hover:opacity-80 transition-opacity overflow-hidden flex-shrink-0 md:hidden">
+                <img
+                  src={logoUrl}
+                  alt="Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="font-heading hidden md:block md:text-2xl tracking-wide uppercase text-brand-white font-bold pt-1 hover:text-brand-teal transition-colors">AyrtonCreative</span>
+            </a>
+          </div>
+
+          <div className="hidden md:flex absolute left-1/2 top-[2rem] -translate-x-1/2 items-center select-none pointer-events-auto z-10" aria-label="Logo">
+            <a href="/" className="flex items-center group">
               <div className="w-10 h-10 rounded-full group-hover:opacity-80 transition-opacity overflow-hidden flex-shrink-0">
                 <img
                   src={logoUrl}
@@ -416,7 +429,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="font-heading hidden md:block md:text-2xl tracking-wide uppercase text-brand-white font-bold pt-1">AyrtonCreative</span>
             </a>
           </div>
 

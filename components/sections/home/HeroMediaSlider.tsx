@@ -88,8 +88,13 @@ export function HeroMediaSlider() {
   }, [advance]);
 
   useEffect(() => {
-    startTimer();
+    // Delay first start to sync with preloader reveal
+    const initDelay = setTimeout(() => {
+      startTimer();
+    }, 3500);
+    
     return () => {
+      clearTimeout(initDelay);
       if (timerRef.current) clearInterval(timerRef.current);
       if (resetRef.current) clearTimeout(resetRef.current);
     };

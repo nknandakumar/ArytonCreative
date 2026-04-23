@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   description: "Ayrton Creative - Premium Animation & VFX Studio",
 };
 
+import Preloader from "@/components/Preloader";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`h-full antialiased dark ${inter.variable}`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-brand-black text-brand-white" suppressHydrationWarning>
+        <Preloader />
         <Navigation />
         <main className="flex-grow flex flex-col">{children}</main>
         <Footer />

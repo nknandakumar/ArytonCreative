@@ -30,14 +30,14 @@ export default function Contact() {
           </TextReveal>
           <RevealItem delay={0.2}>
              <div className="flex flex-col gap-6 font-heading text-2xl uppercase tracking-wide">
-               <a href="mailto:hello@ayrtoncreative.com" className="text-brand-white hover:text-brand-teal transition-colors flex items-center gap-2">
-                 hello@ayrtoncreative.com <ArrowUpRight size={24} />
+               <a href="mailto:ayrtoncreative@gmail.com" className="text-brand-white hover:text-brand-teal transition-colors lowercase flex items-center gap-2">
+                 ayrtoncreative@gmail.com <ArrowUpRight size={24} />
                </a>
                <div className="h-[1px] w-full max-w-xs bg-white/10" />
-               <a href="#" className="text-brand-white hover:text-brand-teal transition-colors flex items-center gap-2">
+               <a href="https://www.instagram.com/ayrtoncreative" className="text-brand-white hover:text-brand-teal transition-colors flex items-center gap-2">
                  Instagram <ArrowUpRight size={24} />
                </a>
-               <a href="#" className="text-brand-white hover:text-brand-teal transition-colors flex items-center gap-2">
+               <a href="https://www.behance.net/ayrtondossantos" className="text-brand-white hover:text-brand-teal transition-colors flex items-center gap-2">
                  Behance <ArrowUpRight size={24} />
                </a>
              </div>
@@ -96,7 +96,7 @@ export default function Contact() {
                     <textarea rows={4} className="bg-transparent border-b border-white/20 pb-2 text-brand-white font-body focus:outline-none focus:border-brand-teal transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
                   </div>
 
-                  <button type="submit" className="bg-brand-teal text-brand-black font-heading text-2xl uppercase py-4 rounded hover:bg-brand-white transition-colors mt-4">
+                  <button type="submit" className="bg-brand-teal font-bold text-brand-black font-heading text-2xl uppercase py-4 rounded hover:bg-brand-white transition-colors mt-4">
                     Submit Request
                   </button>
                 </form>

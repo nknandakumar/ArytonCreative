@@ -2,6 +2,7 @@ import { RevealContainer, RevealItem, TextReveal } from "@/components/animations
 import BrandMarquee from "@/components/BrandMarquee";
 import Link from "next/link";
 import { Star } from "lucide-react";
+import { TimelineSection } from "@/components/sections/about/TimelineSection";
 
 export default function About() {
   return (
@@ -10,8 +11,8 @@ export default function About() {
       <section className="pt-32 pb-24 px-6 max-w-7xl mx-auto w-full">
         <RevealContainer className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <RevealItem>
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
-              <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=2574&auto=format&fit=crop" alt="Ayrton Creative Studio" className="w-full h-full object-cover" />
+            <div className="h-96 w-full rounded-2xl overflow-hidden relative transition-all duration-700">
+              <img src="https://res.cloudinary.com/dxr3pcmsa/image/upload/v1775920402/11b37d168578505.Y3JvcCwxMjAwLDkzOCwwLDEzMA_nop3ve.png" alt="Ayrton Creative Studio" className="w-full h-full object-cover object-center" />
             </div>
           </RevealItem>
           <div>
@@ -34,41 +35,9 @@ export default function About() {
         </RevealContainer>
       </section>
 
-      {/* CAREER TIMELINE */}
-      <section className="py-24 px-6 bg-[#0a0c12] border-y border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <RevealContainer>
-            <TextReveal>
-              <h2 className="font-heading text-4xl text-brand-white uppercase mb-12 border-b border-white/10 pb-4">Our Journey</h2>
-            </TextReveal>
-            <div className="space-y-12 pl-6 md:pl-0">
-               {[
-                 { year: "2020", title: "The Inception", desc: "Started as a solo freelance operation focusing on indie game trailers." },
-                 { year: "2022", title: "Scaling Up", desc: "Expanded the team to 5 artists and acquired our first major brand client." },
-                 { year: "2024", title: "Global Reach", desc: "Opened a second hub and produced the viral 'Echo Core' campaign." },
-                 { year: "2026", title: "New Horizons", desc: "Pushing into real-time rendering and immersive spatial experiences." },
-               ].map((item, i) => (
-                 <RevealItem key={i} delay={i * 0.1}>
-                   <div className="flex flex-col md:flex-row gap-4 md:gap-12 relative before:absolute before:-left-6 md:before:left-1/2 md:before:-ml-[1px] before:top-2 before:bottom-[-48px] before:w-[2px] before:bg-white/10 last:before:hidden">
-                     <div className="md:w-1/2 md:text-right relative">
-                       <span className="font-heading text-3xl text-brand-teal absolute -left-12 top-0 bg-brand-black md:bg-transparent md:static">{item.year}</span>
-                       <div className="hidden md:block absolute right-[-29px] top-2 w-4 h-4 rounded-full bg-brand-teal border-4 border-[#0a0c12]"></div>
-                     </div>
-                     <div className="md:w-1/2">
-                       <div className="md:hidden absolute -left-[29px] top-2 w-4 h-4 rounded-full bg-brand-teal border-4 border-[#0a0c12]"></div>
-                       <h3 className="font-heading text-2xl uppercase text-brand-white mb-2 pt-1 md:pt-0">{item.title}</h3>
-                       <p className="font-body text-brand-white/50">{item.desc}</p>
-                     </div>
-                   </div>
-                 </RevealItem>
-               ))}
-            </div>
-          </RevealContainer>
-        </div>
-      </section>
+      <TimelineSection />
 
-      {/* CLIENT LOGOS */}
-      <BrandMarquee />
+
 
       {/* TESTIMONIALS */}
       <section className="py-24 px-6 max-w-7xl mx-auto">

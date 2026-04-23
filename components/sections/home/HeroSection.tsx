@@ -5,7 +5,7 @@ export function HeroSection() {
   return (
     <section className="relative h-screen md:min-h-screen md:h-auto flex flex-col items-center justify-center md:justify-start overflow-hidden md:overflow-visible md:pt-40 md:pb-0">
       {/* Background Video for Mobile / Block Video for Desktop */}
-      <div className="absolute inset-0 md:relative md:inset-auto w-full md:h-[75vh] md:mt-0 z-0 md:order-last">
+      <div className="absolute inset-0 md:relative md:inset-auto w-full md:h-[100vh] md:-mt-[1px] z-0 md:order-last overflow-hidden">
         <video
           src="https://res.cloudinary.com/dxr3pcmsa/video/upload/v1775920807/Video-550_htk03d.mp4"
           autoPlay
@@ -17,15 +17,17 @@ export function HeroSection() {
         {/* Gradient Overlay for Text Readability - Mobile Only */}
         <div className="absolute inset-0 bg-gradient-to-br from-brand-black/40 via-transparent to-brand-black/95 pointer-events-none md:hidden" />
         
-        {/* Fades for Desktop Video Block */}
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#08090d] via-transparent to-[#08090d] pointer-events-none z-10" />
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#08090d] via-transparent to-transparent pointer-events-none z-10" />
+        {/* Fades for Desktop Video Block (All 4 Edges for seamless join) */}
+        <div className="hidden md:block absolute top-0 inset-x-0 h-4 bg-gradient-to-b from-[#08090d] to-transparent pointer-events-none z-10" />
+        <div className="hidden md:block absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#08090d] to-transparent pointer-events-none z-10" />
+        <div className="hidden md:block absolute left-0 inset-y-0 w-32 bg-gradient-to-r from-[#08090d] to-transparent pointer-events-none z-10" />
+        <div className="hidden md:block absolute right-0 inset-y-0 w-32 bg-gradient-to-l from-[#08090d] to-transparent pointer-events-none z-10" />
       </div>
       
       <RevealContainer className="relative z-10 px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-0 flex flex-col md:flex-row justify-between items-start md:items-stretch h-full md:h-auto w-full pointer-events-none md:pointer-events-auto md:gap-12 lg:gap-16">
         
         {/* Vertical Line on Desktop */}
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/20 -translate-x-1/2 pointer-events-none" />
+        <div className="hidden md:block ml-1 absolute left-1/2 -top-[5.5rem] bottom-0 w-[2px] bg-white/20 -translate-x-1/2 pointer-events-none" />
 
         {/* Top Row / Left Column: Heading */}
         <div className="w-full md:w-1/2 flex justify-start items-start mt-12 md:mt-0 pointer-events-auto md:pr-4 lg:pr-8 md:pb-12">
@@ -53,13 +55,13 @@ export function HeroSection() {
             <div className="flex flex-col sm:flex-row items-start justify-start gap-4 w-full">
               <Link 
                 href="/work" 
-                className="w-full sm:w-auto bg-brand-white text-brand-black font-heading text-sm uppercase px-4 md:px-6 py-2 md:py-3 rounded-sm hover:bg-brand-teal transition-all hover:scale-105 text-center font-bold tracking-tight"
+                className="w-full sm:w-auto bg-transparent border border-white/20 text-brand-white font-heading text-sm uppercase px-4 md:px-6 py-2 md:py-3 rounded-sm hover:border-brand-teal hover:text-brand-teal transition-all hover:scale-105 text-center font-bold tracking-tight"
               >
                 See Our Work
               </Link>
               <Link 
                 href="/contact" 
-                className="w-full sm:w-auto bg-transparent border border-white/20 text-brand-white font-heading text-lg md:text-sm uppercase px-8 md:px-6 py-3 md:py-3 rounded-sm hover:border-brand-teal hover:text-brand-teal transition-all hover:scale-105 text-center font-bold tracking-tight"
+                className="w-full sm:w-auto bg-brand-teal text-brand-black border border-brand-teal font-heading text-lg md:text-sm uppercase px-8 md:px-6 py-3 md:py-3 rounded-sm hover:bg-brand-white hover:border-brand-white transition-all hover:scale-105 text-center font-bold tracking-tight shadow-[0_0_20px_rgba(0,212,168,0.2)]"
               >
                 Start a Project
               </Link>

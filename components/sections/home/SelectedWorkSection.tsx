@@ -48,7 +48,7 @@ export function SelectedWorkSection() {
     if (typeof window === "undefined") return;
     gsap.registerPlugin(ScrollTrigger);
 
-    const panels = panelsRef.current.filter(Boolean);
+    const panels = panelsRef.current.filter((p): p is HTMLDivElement => p !== null);
     if (!panels.length) return;
 
     const ctx = gsap.context(() => {

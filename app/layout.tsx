@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 import Preloader from "@/components/Preloader";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 export default function RootLayout({
   children,
@@ -25,10 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`h-full antialiased dark ${inter.variable}`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-brand-black text-brand-white" suppressHydrationWarning>
-        <Preloader />
-        <Navigation />
-        <main className="flex-grow flex flex-col">{children}</main>
-        <Footer />
+        <SmoothScrolling>
+          <Preloader />
+          <Navigation />
+          <main className="flex-grow flex flex-col">{children}</main>
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );

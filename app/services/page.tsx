@@ -62,7 +62,7 @@ export default function Services() {
                 </div>
 
                 <div className="relative z-10 mt-auto flex flex-col gap-4">
-                  <span className="font-heading text-4xl md:text-5xl tracking-wide uppercase text-brand-white/90 group-hover:text-brand-white transition-colors leading-tight">
+                  <span className="font-heading font-bold text-4xl md:text-5xl tracking-wide uppercase text-brand-white/90 group-hover:text-brand-white transition-colors leading-tight">
                     {cap.title}
                   </span>
                   <p className="font-body text-brand-white/70 text-lg leading-relaxed">{cap.desc}</p>

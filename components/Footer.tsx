@@ -73,7 +73,7 @@ export default function Footer() {
         <div className="w-full flex justify-center items-center overflow-hidden pb-4">
           {/* Outline text effect: text-transparent with stroke */}
           <h1 
-            className="font-heading text-[6.5vw] sm:text-[7.5vw] md:text-[8vw] xl:text-[110px] leading-none uppercase tracking-tighter text-transparent select-none whitespace-nowrap [-webkit-text-stroke:1px_rgba(255,255,255,0.15)] md:[-webkit-text-stroke:2px_rgba(255,255,255,0.15)]"
+            className="font-heading text-[7vw] sm:text-[7.5vw] md:text-[8vw] xl:text-[110px] leading-none uppercase tracking-tighter text-transparent select-none whitespace-nowrap [-webkit-text-stroke:1px_rgba(255,255,255,0.15)] md:[-webkit-text-stroke:2px_rgba(255,255,255,0.15)]"
           >
             Ayrtoncreative
           </h1>

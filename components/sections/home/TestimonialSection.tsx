@@ -40,7 +40,7 @@ export function TestimonialSection() {
           </TextReveal>
           <TextReveal delay={0.1}>
             <h2 className="font-heading text-5xl md:text-7xl text-brand-white uppercase tracking-wider">
-              Client <span className="text-brand-teal">Reviews</span>
+              Clients <span className="text-brand-teal">Reviews</span>
             </h2>
           </TextReveal>
         </RevealContainer>

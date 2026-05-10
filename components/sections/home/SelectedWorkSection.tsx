@@ -39,7 +39,8 @@ const videoProjects = [
 
 export function SelectedWorkSection() {
   return (
-    <section className="bg-brand-black w-full border-t border-white/5 relative">
+    <section className="bg-brand-black w-full border-t border-white/5">
+      {/* Section header */}
       <div className="w-full pt-32 pb-20 px-4 md:px-6 lg:px-10">
         <div className="w-full max-w-[90%] md:max-w-7xl mx-auto text-center">
           <RevealContainer>
@@ -52,32 +53,30 @@ export function SelectedWorkSection() {
         </div>
       </div>
 
-      <div className="w-full relative">
-        {/* Panel 1: Videos */}
-        <div className="w-full bg-[#08090d] relative z-10 isolate overflow-hidden pb-32 md:pb-40">
-          <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
-            <VideoShowcase videos={videoProjects} />
-          </div>
+      {/* Panel 1: Videos */}
+      <div className="w-full bg-[#08090d] pb-32 md:pb-40">
+        <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
+          <VideoShowcase videos={videoProjects} />
         </div>
-        
-        {/* Panel 2: Project 1 */}
-        <div className="w-full bg-[#08090d] relative z-20 isolate overflow-hidden pt-8 pb-32 md:pb-40 border-t border-white/5">
-          <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
-            <ProjectCarousel 
-              title="Oracle RedBull RB21 Peach Livery" 
-              images={project1Images} 
-            />
-          </div>
-        </div>
+      </div>
 
-        {/* Panel 3: Project 2 */}
-        <div className="w-full bg-[#08090d] relative z-30 isolate overflow-hidden pt-8 pb-32 md:pb-40 border-t border-white/5">
-          <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
-            <ProjectCarousel 
-              title="Gulf Williams F1 Team Livery" 
-              images={project2Images} 
-            />
-          </div>
+      {/* Panel 2: Project 1 — Peach RedBull */}
+      <div className="w-full bg-[#08090d] pt-8 pb-32 md:pb-40 border-t border-white/5">
+        <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
+          <ProjectCarousel
+            title="Oracle RedBull RB21 Peach Livery"
+            images={project1Images}
+          />
+        </div>
+      </div>
+
+      {/* Panel 3: Project 2 */}
+      <div className="w-full bg-[#08090d] pt-8 pb-32 md:pb-40 border-t border-white/5">
+        <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
+          <ProjectCarousel
+            title="Gulf Williams F1 Team Livery"
+            images={project2Images}
+          />
         </div>
       </div>
     </section>

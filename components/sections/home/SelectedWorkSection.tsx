@@ -1,8 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { RevealContainer, TextReveal } from "@/components/animations/Reveal";
 import { ProjectCarousel } from "@/components/ProjectCarousel";
 import { VideoShowcase } from "@/components/VideoShowcase";
@@ -41,53 +38,8 @@ const videoProjects = [
 ];
 
 export function SelectedWorkSection() {
-  const containerRef = useRef<HTMLElement>(null);
-  const panelsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    const panels = panelsRef.current.filter((p): p is HTMLDivElement => p !== null);
-    if (!panels.length) return;
-
-    const ctx = gsap.context(() => {
-      panels.forEach((panel, i) => {
-        // We don't pin the last panel so it can scroll naturally out of view
-        if (i === panels.length - 1) return;
-
-        // 1. Pin the current panel
-        ScrollTrigger.create({
-          trigger: panel,
-          // If panel is taller than viewport, pin it when the bottom reaches the bottom of the screen.
-          // Otherwise, pin it when the top reaches the top of the screen.
-          start: () => panel.offsetHeight > window.innerHeight ? "bottom bottom" : "top top",
-          pin: true,
-          pinSpacing: false,
-        });
-
-        // 2. Animate the current panel shrinking and fading as the next panel covers it
-        const nextPanel = panels[i + 1];
-        gsap.to(panel, {
-          scale: 0.92,
-          opacity: 0.4,
-          transformOrigin: () => panel.offsetHeight > window.innerHeight ? "bottom center" : "top center",
-          ease: "none",
-          scrollTrigger: {
-            trigger: nextPanel,
-            start: "top bottom", // Starts when next panel begins sliding in from bottom
-            end: "top top",      // Ends when next panel reaches the top
-            scrub: true,
-          }
-        });
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={containerRef} className="bg-brand-black w-full border-t border-white/5 relative">
+    <section className="bg-brand-black w-full border-t border-white/5 relative">
       <div className="w-full pt-32 pb-20 px-4 md:px-6 lg:px-10">
         <div className="w-full max-w-[90%] md:max-w-7xl mx-auto text-center">
           <RevealContainer>
@@ -102,21 +54,14 @@ export function SelectedWorkSection() {
 
       <div className="w-full relative">
         {/* Panel 1: Videos */}
-        <div 
-          ref={el => { panelsRef.current[0] = el; }} 
-          className="w-full bg-[#08090d] relative z-10 isolate overflow-hidden pb-32 md:pb-40"
-        >
+        <div className="w-full bg-[#08090d] relative z-10 isolate overflow-hidden pb-32 md:pb-40">
           <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
             <VideoShowcase videos={videoProjects} />
           </div>
         </div>
         
         {/* Panel 2: Project 1 */}
-        <div 
-          ref={el => { panelsRef.current[1] = el; }} 
-          className="w-full bg-[#08090d] relative z-20 isolate overflow-hidden pt-8 pb-32 md:pb-40 border-t border-white/5"
-          style={{ boxShadow: "0 -40px 60px 10px #08090d" }}
-        >
+        <div className="w-full bg-[#08090d] relative z-20 isolate overflow-hidden pt-8 pb-32 md:pb-40 border-t border-white/5">
           <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
             <ProjectCarousel 
               title="Oracle RedBull RB21 Peach Livery" 
@@ -126,11 +71,7 @@ export function SelectedWorkSection() {
         </div>
 
         {/* Panel 3: Project 2 */}
-        <div 
-          ref={el => { panelsRef.current[2] = el; }} 
-          className="w-full bg-[#08090d] relative z-30 isolate overflow-hidden pt-8 pb-32 md:pb-40 border-t border-white/5"
-          style={{ boxShadow: "0 -40px 60px 10px #08090d" }}
-        >
+        <div className="w-full bg-[#08090d] relative z-30 isolate overflow-hidden pt-8 pb-32 md:pb-40 border-t border-white/5">
           <div className="w-full max-w-[95%] md:max-w-[85%] px-4 md:px-6 lg:px-10 mx-auto">
             <ProjectCarousel 
               title="Gulf Williams F1 Team Livery" 

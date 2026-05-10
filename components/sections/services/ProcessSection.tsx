@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { TextReveal } from "@/components/animations/Reveal";
 
 const steps = [
@@ -27,47 +26,13 @@ const steps = [
 ];
 
 export function ProcessSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const handleScroll = () => {
-      const rect = section.getBoundingClientRect();
-      const sectionTop = rect.top + window.scrollY;
-      const sectionHeight = rect.height;
-      const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
-
-      const progress = Math.max(
-        0,
-        Math.min(
-          1,
-          (scrollTop - sectionTop + windowHeight) / (sectionHeight + windowHeight)
-        )
-      );
-
-      const stepIndex = Math.min(
-        Math.floor(progress * steps.length),
-        steps.length - 1
-      );
-      setActiveIndex(stepIndex);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section ref={sectionRef} className="bg-brand-black text-brand-white">
+    <section className="bg-brand-black text-brand-white">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid gap-10 lg:gap-16 lg:grid-cols-2 items-start">
 
-          {/* ── Left: Sticky heading + progress ── */}
-          <div className="relative sticky top-24 h-fit pt-16 pb-8">
+          {/* ── Left: Heading + progress ── */}
+          <div className="relative h-fit pt-16 pb-8">
             {/* Label */}
             <p className="font-body text-[10px] uppercase tracking-[0.35em] text-brand-white/40 mb-8">
               ( Process )
@@ -91,38 +56,21 @@ export function ProcessSection() {
               {steps.map((step, index) => (
                 <div
                   key={step.num}
-                  className={`flex items-center gap-3 transition-all duration-500 ${
-                    index <= activeIndex ? "opacity-100" : "opacity-30"
-                  }`}
+                  className="flex items-center gap-3 opacity-100"
                 >
                   {/* Dot / bar indicator */}
                   <div
-                    className={`h-[3px] rounded-full transition-all duration-500 ${
-                      index === activeIndex
-                        ? "w-8 bg-brand-teal"
-                        : index < activeIndex
-                        ? "w-3 bg-brand-teal/60"
-                        : "w-3 bg-white/20"
-                    }`}
+                    className="h-[3px] rounded-full w-3 bg-brand-teal/60"
                   />
-                  <span
-                    className={`font-body text-xs uppercase tracking-widest transition-colors duration-300 ${
-                      index === activeIndex ? "text-brand-teal" : "text-brand-white/50"
-                    }`}
-                  >
+                  <span className="font-body text-xs uppercase tracking-widest text-brand-white/50">
                     {step.num}
                   </span>
-                  {index === activeIndex && (
-                    <span className="font-body text-xs text-brand-white/40 tracking-wider">
-                      — {step.title}
-                    </span>
-                  )}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* ── Right: Scrollable stacked cards ── */}
+          {/* ── Right: Stacked cards ── */}
           <div className="relative space-y-[2px] py-16">
             {steps.map((step, index) => (
               <div
@@ -132,7 +80,6 @@ export function ProcessSection() {
                   transition-all duration-500
                   ${index === 0 ? "rounded-t-2xl" : ""}
                   ${index === steps.length - 1 ? "rounded-b-2xl" : ""}
-                  ${index <= activeIndex ? "bg-white/[0.05]" : ""}
                 `}
               >
                 {/* Step number */}
